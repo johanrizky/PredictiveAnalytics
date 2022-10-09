@@ -38,67 +38,53 @@ Data yang digunakan oleh proyek ini adalah dari [Kaggle](https://www.kaggle.com/
 
 ### Exploratory data analysis:
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/read_csv.jpg" alt="drawing" width="200"/> 
+![read_csv](https://github.com/johanrizky/PredictiveAnalytics/blob/main/read_csv.jpg)
+
 Gambar 1. Visualisasi data dengan read_csv
-
-
 
 - Visualisasi data untuk melihat isi data csv menggunakan fungsi read_csv dari library pandas seperti pada gambar 1. 
 
+![info()](https://github.com/johanrizky/PredictiveAnalytics/blob/main/info().jpg)
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/info().jpg" alt="drawing" width="200"/>
 Gambar 2. Visualisasi dengan fungi info()
-
-
 
 - Mengetahui tipe data dengan fungsi info(), seperti pada gambar 2.
 
+![describe()](https://github.com/johanrizky/PredictiveAnalytics/blob/main/describe().jpg)
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/describe().jpg" alt="drawing" width="400"/>
 Gambar 3. Cek deskripsi dengan fungsi describe()
-
-
 
 - Mengetahui nilai yang tidak masuk akal seperti 0 pada *engineSize* seperti pada gambar 3.
 
+![drop](https://github.com/johanrizky/PredictiveAnalytics/blob/main/drop%200.jpg)
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/drop%200.jpg" alt="drawing" width="200"/>
 Gambar 4. hapus baris dengan nilai 0
-
-
 
 - Menangani *missing value* dengan menghapus baris yang memiliki nilai nol seperti pada gambar 4, dengan catatan nilai nol tersebut tidak masuk akal. Selanjutnya data menjadi berukuran 15.768.
 
+![outlier](https://github.com/johanrizky/PredictiveAnalytics/blob/main/cek%20outliers.jpg)
 
-
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/cek%20outliers.jpg" alt="drawing" width="500"/>
 Gambar 5. Menghilangkan *outlier* dengan IQR
-
-
 
 - Menangani *outlier* yang berada di luar Q1 dan Q3 dengan metode IQR seperti pada gambar 5.
 
-
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/Univariate%20numerical%20feature.jpg" alt="drawing" width="200"/>
-
+![univariate](https://github.com/johanrizky/PredictiveAnalytics/blob/main/Univariate%20numerical%20feature.jpg)
 
 Gambar 6. Contoh *univariate* untuk *numerical feature*
 
-
-
 - Melakukan proses analisis *univariate* dengan membagi fitur kolom menjadi *numerical* dan *categorical*.
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/multivariate%20featrue%20categorical.jpg" alt="drawing" width="200"/>
+![multivariate](https://github.com/johanrizky/PredictiveAnalytics/blob/main/multivariate%20featrue%20categorical.jpg)
 
 Gambar 7. *Multivariate categorical feature*
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20fitur%20numerik%20terhadap%20price.jpg" alt="drawing" width="200"/>
+![correlation numeric](https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20fitur%20numerik%20terhadap%20price.jpg)
+
 Gambar 8. Korelasi fitur *numeric* terhadap *price*
 
-<img src="https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20price%20terhadap%20fitur%20mobil%20setelah%20one%20hot%20encoding.jpg" alt="drawing" width="700"/>
+![korelasi fitur mobil](https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20price%20terhadap%20fitur%20mobil%20setelah%20one%20hot%20encoding.jpg)
+
 Gambar 9. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
-
-
 
 - Melakukan proses analisis *multivariate* untuk mengetahui hubungan antara dua atau lebih variabel seperti pada gambar 7, contoh *price* dengan *transmission*. Disini juga akan mengevaluasi skor korelasi fitur kolom yang berisi numerik menggunakan fungsi corr() seperti pada gambar 8, dan mengetahui skor korelasi *price* dengan setiap model mobil dan fitur mobil setelah melakukan *one-hot-encoding* seperti pada gambar 9.
 
@@ -124,34 +110,23 @@ Gambar 9. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
 ### Tahapan modeling yang digunakan :
 1. Menyiapkan data frame untuk digunakan sebagai analisi ketiga model nantinya.
 2. K-Nearest Neighbor
-    - K-NN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain atau dengan objek terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). Cara K-NN adalah menentukan nilai K yaitu di parameter n_neighbors yang akan dipakai pada model KNeighborsRegressor seperti potongan kode berikut berikut : 
-        ```
-        knn = KNeighborsRegressor(n_neighbors=10)
-        knn.fit(X_train, y_train)
-        ```
-        Setelah K ditentukan di parameter KNeighborsRegressor, lalu dipanggil dengan model fit.
+    - K-NN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain atau dengan objek terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). 
+    - Cara K-NN adalah menentukan nilai K yaitu di parameter n_neighbors yang akan dipakai pada model KNeighborsRegressor. Setelah K ditentukan di parameter n_neighbors, lalu dipanggil dengan model fit.
     - Kelebihan K-NN adalah mudah digunakan karena dapat menghindari overfit dan underfit bila memilih nilai K yang sesuai.
     - Sedangkan kekurangannya adalah  jika dihadapkan pada jumlah fitur atau dimensi yang besar. Pada dasarnya, permasalahan ini muncul ketika jumlah sampel meningkat secara eksponensial seiring dengan jumlah dimensi (fitur) pada data.
 3. Random Forest
-    - Random Forest merupakan model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Ide dibalik model ensemble adalah sekelompok model yang bekerja bersama menyelesaikan masalah. Sehingga, tingkat keberhasilan akan lebih tinggi dibanding model yang bekerja sendirian. Cara menenggunakan Random forest sebagai berikut :
-        ```
-        RF = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
-        RF.fit(X_train, y_train)
-        ```
-        - Menentukan tree yang dibentuk n_estimators semakin banyak semakin baik tetapi program semakin lama.
-        - Menentukan ukuran seberapa banyak tree dapat membelah untuk membagi setiap node ke jumlah pengamatan di max_depth.
-        - mengontrol random number generator yang digunakan pada random_state.
+    - Random Forest merupakan model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Ide dibalik model ensemble adalah sekelompok model yang bekerja bersama menyelesaikan masalah. Sehingga, tingkat keberhasilan akan lebih tinggi dibanding model yang bekerja sendirian. 
+    - Menggunakan Random forest dapat dilakukan dengan langkah sebagai berikut :
+        - Menentukan tree yang dibentuk di parameter n_estimators pada RandomForestRegressor, semakin banyak nilai yang ditentukan semakin baik, tetapi program semakin lama.
+        - Menentukan ukuran seberapa banyak tree dapat membelah untuk membagi setiap node ke jumlah pengamatan di max_depth pada RandomForestRegressor.
+        - mengontrol random number generator yang digunakan di parameter random_state pada RandomForestRegressor.
         - Menentukan jumlah proses yang berjalan / job (pekerjaan yang digunakan secara paralel). n_jobs=-1 artinya proses berjalan secara paralel. 
     - Kelebihan Random Forest dapat dihadapkan dengan fitur yang acak dan data yang banyak.
     - Sedangkan kekurangan Random Forest adalah sulit diterapkan karena membutuhkan hyperparameter yang tepat.
 4. Boosting Algorithm
-    - Boosting merupakan model yang dilatih secara berurutan atau dalam proses yang iteratif. Teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. Cara menggunakan boosting algorithm sebagai berikut :
-        ```
-        boosting = AdaBoostRegressor(learning_rate=0.05, random_state=55)
-        boosting.fit(X_train, y_train)
-        ```      
-        - Menentukan bobot yang diterapkan pada masing- masing iterasi boosting pada parameter learning_rate.
-        - Mengontrol random number generator yang digunakan pada parameter random_state.
+    - Boosting merupakan model yang dilatih secara berurutan atau dalam proses yang iteratif. Teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. Menggunakan boosting algorithm dapat dilakukan dengan langkah sebagai berikut :
+        - Menentukan bobot yang diterapkan pada masing- masing iterasi boosting pada parameter learning_rate pada AdaBoostRegressor.
+        - Mengontrol random number generator yang digunakan pada parameter random_state pada AdaBoostRegressor.
     - Kelebihan algoritma adalah dapat membentuk suatu model yang kuat (strong ensemble learner), powerful dalam meningkatkan akurasi prediksi, dan mengungguli model yang lebih sederhana seperti logistic regression dan random forest.
     - Hampir tidak ada kelemahan kecuali kurang membaca dokumentasi.
 
@@ -182,6 +157,5 @@ Dalam kasus ini, saya menggunakan kasus regresi. Dalam tes program saya sendiri 
     2. Mengecek performa model dengan r2_score menggunakan library metrics dari sklearn
 
 ### Referensi
-1. E. Gegic, B. Isakovic, D. Keco, Z. Masetic and J. Kevric, "Car Price Prediction using Machine," Technology, Education, Management, Informatics, vol. 8, no. 1, pp. 113-118, 2019. [source journal](https://temjournal.com/content/81/TEMJournalFebruary2019_113_118.pdf) 
-2. [Machine Learning Terapan](https://www.dicoding.com/academies/319/) dari Dicoding
+1. E. Gegic, B. Isakovic, D. Keco, Z. Masetic and J. Kevric, "Car Price Prediction using Machine," Technology, Education, Management, Informatics, vol. 8, no. 1, pp. 113-118, 2019.
 3. Evaluasi metrics [r2_score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html) skelarn
