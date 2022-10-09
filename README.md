@@ -38,55 +38,75 @@ Data yang digunakan oleh proyek ini adalah dari [Kaggle](https://www.kaggle.com/
 
 ### Exploratory data analysis:
 
-![read_csv](https://user-images.githubusercontent.com/81506579/194743663-beef71c2-21d6-4a0e-b612-b4d81a46dfa3.jpg)
+|   	|  model 	| year 	| price 	| transmission 	| mileage 	| fuelType 	| tax 	|  mpg 	| engineSize 	|
+|:-:	|:------:	|:----:	|:-----:	|:------------:	|:-------:	|:--------:	|:---:	|:----:	|:----------:	|
+| 0 	| Fiesta 	| 2017 	| 12000 	|   Automatic  	|  15944  	|  Petrol  	| 150 	| 57.7 	|     1.0    	|
+| 1 	|  Focus 	| 2018 	| 14000 	|    Manual    	|   9083  	|  Petrol  	| 150 	| 57.7 	|     1.0    	|
+| 2 	|  Focus 	| 2017 	| 13000 	|    Manual    	|  12456  	|  Petrol  	| 150 	| 57.7 	|     1.0    	|
+| 3 	| Fiesta 	| 2019 	| 17500 	|    Manual    	|  10460  	|  Petrol  	| 145 	| 40.3 	|     1.5    	|
+| 4 	| Fiesta 	| 2019 	| 16500 	|   Automatic  	|   1482  	|  Petrol  	| 145 	| 48.7 	|     1.0    	|
 
-Gambar 1. Visualisasi data dengan read_csv
+Tabel 1. hasil visualisasi ford_csv dengan head()
 
-- Visualisasi data untuk melihat isi data csv menggunakan fungsi read_csv dari library pandas seperti pada gambar 1. 
+- Visualisasi data untuk melihat isi data csv menggunakan read_csv dari library pandas lalu memanngil head() hasilnya menjadi seperti tabel 1.
 
-![info()](https://user-images.githubusercontent.com/81506579/194743679-77d20f4d-f732-4d3f-ba8e-7964f5bc2f05.jpg)
+| # 	|    Column    	| Non-Null Count 	|  Dtype  	|
+|:-:	|:------------:	|:--------------:	|:-------:	|
+| 0 	|     model    	| 17965 non-null 	|  object 	|
+| 1 	|     year     	| 17965 non-null 	|  int64  	|
+| 2 	|     price    	| 17965 non-null 	|  int64  	|
+| 3 	| transmission 	| 17965 non-null 	|  object 	|
+| 4 	|    mileage   	| 17965 non-null 	|  int64  	|
+| 5 	|   fuelType   	| 17965 non-null 	|  object 	|
+| 6 	|      tax     	| 17965 non-null 	|  int64  	|
+| 7 	|      mpg     	| 17965 non-null 	| float64 	|
+| 8 	|  engineSize  	| 17965 non-null 	| float64 	|
 
-Gambar 2. Visualisasi dengan fungi info()
+Tabel 2. hasil visualisasi menggunakan fungsi info()
 
-- Mengetahui tipe data dengan fungsi info(), seperti pada gambar 2.
+- Mengetahui tipe data dengan memanggil fungsi info(), seperti pada tabel 2.
 
-![describe()](https://user-images.githubusercontent.com/81506579/194743687-d1d0fbef-649d-4b11-a93f-8a1d9ee34a5d.jpg)
+| index 	|        year        	|        price       	|       mileage      	|         tax        	|        mpg        	|      engineSize     	|
+|:-----:	|:------------------:	|:------------------:	|:------------------:	|:------------------:	|:-----------------:	|:-------------------:	|
+| count 	|            17965.0 	|            17965.0 	|            17965.0 	|            17965.0 	|           17965.0 	|             17965.0 	|
+| mean  	| 2016.8665738936822 	| 12279.756415251879 	| 23363.630503757307 	| 113.33453938213192 	| 57.90699137211244 	|  1.3508266072919568 	|
+| std   	| 2.0503457521500703 	|   4741.38260592978 	| 19472.114689574115 	|  62.01043819764455 	| 10.12597742046986 	| 0.43237138391873636 	|
+| min   	|             1996.0 	|              495.0 	|                1.0 	|                0.0 	|              20.8 	|                 0.0 	|
+| 25%   	|             2016.0 	|             8999.0 	|             9987.0 	|               30.0 	|              52.3 	|                 1.0 	|
+| 50%   	|             2017.0 	|            11291.0 	|            18243.0 	|              145.0 	|              58.9 	|                 1.2 	|
+| 75%   	|             2018.0 	|            15299.0 	|            31064.0 	|              145.0 	|              65.7 	|                 1.5 	|
+| max   	|             2060.0 	|            54995.0 	|           177644.0 	|              580.0 	|             201.8 	|                 5.0 	|
 
-Gambar 3. Cek deskripsi dengan fungsi describe()
+Tabel 3. hasil cek deskripsi menggunakan fungsi describe()
 
-- Mengetahui nilai yang tidak masuk akal seperti 0 pada *engineSize* seperti pada gambar 3.
+- Mengetahui nilai yang tidak masuk akal seperti 0 pada *engineSize* seperti pada tabel 3 setelah memanggil fungsi describe().
+- Setelah mengetahui nilai 0. Selanjutnya menangani *missing value* dengan menghapus baris yang memiliki nilai nol, dengan catatan nilai nol tersebut tidak masuk akal. Setelah itu data ford_csv menjadi berukuran 15.768 baris data.
 
-![drop 0](https://user-images.githubusercontent.com/81506579/194743705-fc140a92-eb30-43a0-9e78-479c6b87ff14.jpg)
+![menghilangkan outliers](https://user-images.githubusercontent.com/81506579/194746392-3ee1fb91-5b9b-4257-af77-e94854ba4432.jpg)
 
-Gambar 4. hapus baris dengan nilai 0
+Gambar 1. Menangani *outlier* menggunakan metode IQR
 
-- Menangani *missing value* dengan menghapus baris yang memiliki nilai nol seperti pada gambar 4, dengan catatan nilai nol tersebut tidak masuk akal. Selanjutnya data menjadi berukuran 15.768.
-
-![menghilangkan outliers](https://user-images.githubusercontent.com/81506579/194743733-7a4d838f-0b42-44ff-9911-75ce0e2abc69.jpg)
-
-Gambar 5. Menghilangkan *outlier* dengan IQR
-
-- Menangani *outlier* yang berada di luar Q1 dan Q3 dengan metode IQR seperti pada gambar 5.
+- Menangani *outlier* yang berada di luar Q1 dan Q3 dengan metode IQR. Sehinnga data sekarang menjadi 8.401 baris dengan 9 kolom.
 
 ![Univariate numerical feature](https://user-images.githubusercontent.com/81506579/194743760-719ecc55-7ebf-448a-ab27-7a5ef8e97d5e.jpg)
 
-Gambar 6. Contoh *univariate* untuk *numerical feature*
+Gambar 2. Contoh *univariate* untuk *numerical feature*
 
 - Melakukan proses analisis *univariate* dengan membagi fitur kolom menjadi *numerical* dan *categorical*.
 
 ![multivariate featrue categorical](https://user-images.githubusercontent.com/81506579/194743789-92c4699c-278c-433b-9f1f-3aa9b1ab6d9d.jpg)
 
-Gambar 7. *Multivariate categorical feature*
+Gambar 3. *Multivariate categorical feature*
 
 ![korelasi fitur numerik terhadap price](https://user-images.githubusercontent.com/81506579/194743840-8131b1e1-63f6-42bb-97ab-562b76bf1931.jpg)
 
-Gambar 8. Korelasi fitur *numeric* terhadap *price*
+Gambar 4. Korelasi fitur *numeric* terhadap *price*
 
 ![korelasi price terhadap fitur mobil setelah one hot encoding](https://user-images.githubusercontent.com/81506579/194743853-f0763c5f-9c72-4304-8b73-cd0e9b451398.jpg)
 
-Gambar 9. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
+Gambar 5. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
 
-- Melakukan proses analisis *multivariate* untuk mengetahui hubungan antara dua atau lebih variabel seperti pada gambar 7, contoh *price* dengan *transmission*. Disini juga akan mengevaluasi skor korelasi fitur kolom yang berisi numerik menggunakan fungsi corr() seperti pada gambar 8, dan mengetahui skor korelasi *price* dengan setiap model mobil dan fitur mobil setelah melakukan *one-hot-encoding* seperti pada gambar 9.
+- Melakukan proses analisis *multivariate* untuk mengetahui hubungan antara dua atau lebih variabel seperti pada gambar 3, contoh *price* dengan *transmission*. Disini juga akan mengevaluasi skor korelasi fitur kolom yang berisi numerik menggunakan fungsi corr() seperti pada gambar 4, dan mengetahui skor korelasi *price* dengan setiap model mobil dan fitur mobil setelah melakukan *one-hot-encoding* seperti pada gambar 5.
 
 ## Data Preparation
 
