@@ -38,51 +38,51 @@ Data yang digunakan oleh proyek ini adalah dari [Kaggle](https://www.kaggle.com/
 
 ### Exploratory data analysis:
 
-![read_csv](https://github.com/johanrizky/PredictiveAnalytics/blob/main/read_csv.jpg)
+![read_csv](https://user-images.githubusercontent.com/81506579/194743663-beef71c2-21d6-4a0e-b612-b4d81a46dfa3.jpg)
 
 Gambar 1. Visualisasi data dengan read_csv
 
 - Visualisasi data untuk melihat isi data csv menggunakan fungsi read_csv dari library pandas seperti pada gambar 1. 
 
-![info()](https://github.com/johanrizky/PredictiveAnalytics/blob/main/info().jpg)
+![info()](https://user-images.githubusercontent.com/81506579/194743679-77d20f4d-f732-4d3f-ba8e-7964f5bc2f05.jpg)
 
 Gambar 2. Visualisasi dengan fungi info()
 
 - Mengetahui tipe data dengan fungsi info(), seperti pada gambar 2.
 
-![describe()](https://github.com/johanrizky/PredictiveAnalytics/blob/main/describe().jpg)
+![describe()](https://user-images.githubusercontent.com/81506579/194743687-d1d0fbef-649d-4b11-a93f-8a1d9ee34a5d.jpg)
 
 Gambar 3. Cek deskripsi dengan fungsi describe()
 
 - Mengetahui nilai yang tidak masuk akal seperti 0 pada *engineSize* seperti pada gambar 3.
 
-![drop](https://github.com/johanrizky/PredictiveAnalytics/blob/main/drop%200.jpg)
+![drop 0](https://user-images.githubusercontent.com/81506579/194743705-fc140a92-eb30-43a0-9e78-479c6b87ff14.jpg)
 
 Gambar 4. hapus baris dengan nilai 0
 
 - Menangani *missing value* dengan menghapus baris yang memiliki nilai nol seperti pada gambar 4, dengan catatan nilai nol tersebut tidak masuk akal. Selanjutnya data menjadi berukuran 15.768.
 
-![outlier](https://github.com/johanrizky/PredictiveAnalytics/blob/main/cek%20outliers.jpg)
+![menghilangkan outliers](https://user-images.githubusercontent.com/81506579/194743733-7a4d838f-0b42-44ff-9911-75ce0e2abc69.jpg)
 
 Gambar 5. Menghilangkan *outlier* dengan IQR
 
 - Menangani *outlier* yang berada di luar Q1 dan Q3 dengan metode IQR seperti pada gambar 5.
 
-![univariate](https://github.com/johanrizky/PredictiveAnalytics/blob/main/Univariate%20numerical%20feature.jpg)
+![Univariate numerical feature](https://user-images.githubusercontent.com/81506579/194743760-719ecc55-7ebf-448a-ab27-7a5ef8e97d5e.jpg)
 
 Gambar 6. Contoh *univariate* untuk *numerical feature*
 
 - Melakukan proses analisis *univariate* dengan membagi fitur kolom menjadi *numerical* dan *categorical*.
 
-![multivariate](https://github.com/johanrizky/PredictiveAnalytics/blob/main/multivariate%20featrue%20categorical.jpg)
+![multivariate featrue categorical](https://user-images.githubusercontent.com/81506579/194743789-92c4699c-278c-433b-9f1f-3aa9b1ab6d9d.jpg)
 
 Gambar 7. *Multivariate categorical feature*
 
-![correlation numeric](https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20fitur%20numerik%20terhadap%20price.jpg)
+![korelasi fitur numerik terhadap price](https://user-images.githubusercontent.com/81506579/194743840-8131b1e1-63f6-42bb-97ab-562b76bf1931.jpg)
 
 Gambar 8. Korelasi fitur *numeric* terhadap *price*
 
-![korelasi fitur mobil](https://github.com/johanrizky/PredictiveAnalytics/blob/main/korelasi%20price%20terhadap%20fitur%20mobil%20setelah%20one%20hot%20encoding.jpg)
+![korelasi price terhadap fitur mobil setelah one hot encoding](https://user-images.githubusercontent.com/81506579/194743853-f0763c5f-9c72-4304-8b73-cd0e9b451398.jpg)
 
 Gambar 9. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
 
@@ -111,22 +111,22 @@ Gambar 9. Korelasi *price* terhadap fitur mobil setelah *one-hot-encoding*
 1. Menyiapkan data frame untuk digunakan sebagai analisi ketiga model nantinya.
 2. K-Nearest Neighbor
     - K-NN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain atau dengan objek terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). 
-    - Cara K-NN adalah menentukan nilai K yaitu di parameter n_neighbors yang akan dipakai pada model KNeighborsRegressor. Setelah K ditentukan di parameter n_neighbors, lalu dipanggil dengan model fit.
+    - Cara menggunakan K-NN adalah menentukan nilai K yaitu di parameter n_neighbors yang akan dipakai pada model KNeighborsRegressor. K ditentukan dengan nilai n_neighbors=10, lalu dipanggil dengan model fit.
     - Kelebihan K-NN adalah mudah digunakan karena dapat menghindari overfit dan underfit bila memilih nilai K yang sesuai.
     - Sedangkan kekurangannya adalah  jika dihadapkan pada jumlah fitur atau dimensi yang besar. Pada dasarnya, permasalahan ini muncul ketika jumlah sampel meningkat secara eksponensial seiring dengan jumlah dimensi (fitur) pada data.
 3. Random Forest
     - Random Forest merupakan model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Ide dibalik model ensemble adalah sekelompok model yang bekerja bersama menyelesaikan masalah. Sehingga, tingkat keberhasilan akan lebih tinggi dibanding model yang bekerja sendirian. 
     - Menggunakan Random forest dapat dilakukan dengan langkah sebagai berikut :
-        - Menentukan tree yang dibentuk di parameter n_estimators pada RandomForestRegressor, semakin banyak nilai yang ditentukan semakin baik, tetapi program semakin lama.
-        - Menentukan ukuran seberapa banyak tree dapat membelah untuk membagi setiap node ke jumlah pengamatan di max_depth pada RandomForestRegressor.
-        - mengontrol random number generator yang digunakan di parameter random_state pada RandomForestRegressor.
+        - Menentukan tree yang dibentuk di parameter n_estimators pada RandomForestRegressor, semakin banyak nilai yang ditentukan semakin baik, tetapi program semakin lama. Disini kita akan menentukan dengan nilai n_estimators=50.
+        - max_depth=16. Digunakan untuk menentukan ukuran seberapa banyak tree dapat membelah untuk membagi setiap node ke jumlah pengamatan pada RandomForestRegressor.
+        - random_state=55. Digunakan untuk mengontrol random number generator yang digunakan pada model RandomForestRegressor.
         - Menentukan jumlah proses yang berjalan / job (pekerjaan yang digunakan secara paralel). n_jobs=-1 artinya proses berjalan secara paralel. 
     - Kelebihan Random Forest dapat dihadapkan dengan fitur yang acak dan data yang banyak.
     - Sedangkan kekurangan Random Forest adalah sulit diterapkan karena membutuhkan hyperparameter yang tepat.
 4. Boosting Algorithm
     - Boosting merupakan model yang dilatih secara berurutan atau dalam proses yang iteratif. Teknik boosting bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. Menggunakan boosting algorithm dapat dilakukan dengan langkah sebagai berikut :
-        - Menentukan bobot yang diterapkan pada masing- masing iterasi boosting pada parameter learning_rate pada AdaBoostRegressor.
-        - Mengontrol random number generator yang digunakan pada parameter random_state pada AdaBoostRegressor.
+        - learning_rate=0.05. Digunakan untuk menentukan bobot yang diterapkan pada masing- masing iterasi boosting pada model AdaBoostRegressor.
+        - random_state=55. Digunakan untuk mengontrol random number generator pada model AdaBoostRegressor.
     - Kelebihan algoritma adalah dapat membentuk suatu model yang kuat (strong ensemble learner), powerful dalam meningkatkan akurasi prediksi, dan mengungguli model yang lebih sederhana seperti logistic regression dan random forest.
     - Hampir tidak ada kelemahan kecuali kurang membaca dokumentasi.
 
